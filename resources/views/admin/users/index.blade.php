@@ -40,7 +40,6 @@ active
                                 <thead>
                                     <tr>
                                         <th width="8%">No</th>
-                                        <th>No. Anggota</th>
                                         <th>Name</th>
                                         <th>Username</th>
                                         <th>Email</th>

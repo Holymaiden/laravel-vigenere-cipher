@@ -70,7 +70,7 @@ class LoginController extends Controller
     {
         try {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                dd(Auth::user()->email);
+                // dd(Auth::user()->password);
                 return redirect()->to('admin');
             } else {
                 return redirect()->back();

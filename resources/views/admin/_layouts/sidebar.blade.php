@@ -17,7 +17,7 @@
             </li>
 
             <li class="@stack('users')">
-                <a class="nav-link" href="{{ url('users') }}">
+                <a class="nav-link" href="{{ route('users') }}">
                     <i class="fas fa-fire"></i>
                     <span>Users</span>
                 </a>

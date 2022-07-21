@@ -70,9 +70,7 @@ class Helper
     // button create
     public static function btn_create($roles)
     {
-        $arr = Session::get('roles');
-        if ($arr[$roles]['create'] == '1') {
-            return '<a onclick="createForm()" class="">
+        return '<a onclick="createForm()" class="">
                         <button class="btn btn-primary btn-rounded btn-sm">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
@@ -80,30 +78,22 @@ class Helper
                             Add New
                         </button>
                      </a>';
-        }
     }
 
     // get data from tabel
-    public static function btn_action($id, $roles)
+    public static function btn_action($id)
     {
-        $edit = null;
-        $delete = null;
-        $arr = Session::get('roles');
-        if ($arr[$roles]['edit'] == '1') {
-            $edit = '<a onclick="editForm(' . $id . ')" class="">
+        $edit = '<a onclick="editForm(' . $id . ')" class="">
                         <button type="button" class="btn btn-icon btn-round btn-warning btn-sm">
                             <i class="fa fa-pencil-alt"></i>
                         </button>
             </a> ';
-        }
-        if ($arr[$roles]['delete'] == '1') {
-            $delete = ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $id . '"
+        $delete = ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="' . $id . '"
                title="Delete" class="deleteData">
                         <button type="button" class="btn btn-icon btn-round btn-danger btn-sm">
                             <i class="fa fa-trash-alt"></i>
                         </button>
             </a>';
-        }
         return $edit . $delete;
     }
 
