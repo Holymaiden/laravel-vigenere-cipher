@@ -19,12 +19,12 @@
             <li class="nav-item dropdown @stack('candidates')">
                 <a href="#" class="nav-link has-dropdown">
                     <i class="fas fa-list-alt"></i>
-                    <span>Candidate</span>
+                    <span>Candidates</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="@stack('candidates')">
                         <a class="nav-link" href="{{ url('admin/candidates') }}">
-                            Candidates
+                            Candidate
                         </a>
                     </li>
                 </ul>
@@ -33,12 +33,12 @@
             <li class="nav-item dropdown @stack('student-settings')">
                 <a href="#" class="nav-link has-dropdown">
                     <i class="fas fa-list-alt"></i>
-                    <span>Student</span>
+                    <span>Students</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="@stack('students')">
                         <a class="nav-link" href="{{ url('admin/students') }}">
-                            Students
+                            Student
                         </a>
                     </li>
                 </ul>
@@ -66,6 +66,19 @@
                     <li class="@stack('roles')">
                         <a class="nav-link" href="{{ url('admin/roles') }}">
                             Roles
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown @stack('settings')">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Settings</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="@stack('settings')">
+                        <a class="nav-link" href="{{ url('admin/settings') }}">
+                            Setting
                         </a>
                     </li>
                 </ul>

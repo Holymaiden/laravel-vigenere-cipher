@@ -69,6 +69,15 @@ Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], fun
             Route::put('/{id}', 'RoleController@update')->name('roles.update');
             Route::delete('/{id}', 'RoleController@destroy')->name('roles.delete');
         });
+
+        Route::group(['prefix' => '/settings'], function () {
+            Route::get('/', 'SettingController@index')->name('settings');
+            Route::get('/data', 'SettingController@data')->name('settings.data');
+            Route::post('/store', 'SettingController@store')->name('settings.store');
+            Route::get('/{id}/edit', 'SettingController@edit')->name('settings.edit');
+            Route::put('/{id}', 'SettingController@update')->name('settings.update');
+            Route::delete('/{id}', 'SettingController@destroy')->name('settings.delete');
+        });
     });
 });
 
