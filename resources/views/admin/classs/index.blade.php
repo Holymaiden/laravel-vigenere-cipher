@@ -4,7 +4,7 @@
 @include('admin._layouts.css.css-table')
 @endpush
 
-@push('user-settings')
+@push('student-settings')
 active
 @endpush
 
@@ -40,7 +40,6 @@ active
                                 <thead>
                                     <tr>
                                         <th scope="col" width="8%">No</th>
-                                        <th scope="col">Role</th>
                                         <th scope="col">Name</th>
                                         <th scope="col" width="12%">Aksi</th>
                                     </tr>

@@ -16,26 +16,46 @@
                 </a>
             </li>
 
-            <li class="@stack('users')">
-                <a class="nav-link" href="{{ route('users') }}">
-                    <i class="fas fa-fire"></i>
-                    <span>Users</span>
-                </a>
-            </li>
-            <!-- <li class="nav-item dropdown ">
+            <li class="nav-item dropdown @stack('student-settings')">
                 <a href="#" class="nav-link has-dropdown">
                     <i class="fas fa-list-alt"></i>
-                    <span>Users</span>
+                    <span>Student</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="1">
+                    <li class="@stack('students')">
+                        <a class="nav-link" href="{{ url('admin/students') }}">
+                            Students
+                        </a>
+                    </li>
+                </ul>
+                <ul class="dropdown-menu">
+                    <li class="@stack('classs')">
+                        <a class="nav-link" href="{{ url('admin/classs') }}">
+                            Class
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown @stack('user-settings')">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fas fa-list-alt"></i>
+                    <span>User Settings</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="@stack('users')">
                         <a class="nav-link" href="{{ url('admin/users') }}">
                             Users
                         </a>
                     </li>
-
                 </ul>
-            </li> -->
+                <ul class="dropdown-menu">
+                    <li class="@stack('roles')">
+                        <a class="nav-link" href="{{ url('admin/roles') }}">
+                            Roles
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
