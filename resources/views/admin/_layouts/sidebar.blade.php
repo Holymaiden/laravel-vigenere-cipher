@@ -16,6 +16,20 @@
                 </a>
             </li>
 
+            <li class="nav-item dropdown @stack('candidates')">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Candidate</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="@stack('candidates')">
+                        <a class="nav-link" href="{{ url('admin/candidates') }}">
+                            Candidates
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-item dropdown @stack('student-settings')">
                 <a href="#" class="nav-link has-dropdown">
                     <i class="fas fa-list-alt"></i>

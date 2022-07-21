@@ -25,6 +25,15 @@ Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], fun
 
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
+        Route::group(['prefix' => '/candidates'], function () {
+            Route::get('/', 'CandidateController@index')->name('candidates');
+            Route::get('/data', 'CandidateController@data')->name('candidates.data');
+            Route::post('/store', 'CandidateController@store')->name('candidates.store');
+            Route::get('/{id}/edit', 'CandidateController@edit')->name('candidates.edit');
+            Route::put('/{id}', 'CandidateController@update')->name('candidates.update');
+            Route::delete('/{id}', 'CandidateController@destroy')->name('candidates.delete');
+        });
+
         Route::group(['prefix' => '/students'], function () {
             Route::get('/', 'StudentController@index')->name('students');
             Route::get('/data', 'StudentController@data')->name('students.data');

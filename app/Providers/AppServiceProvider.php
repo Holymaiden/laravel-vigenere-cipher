@@ -38,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
             'User',
             'Student',
             'ClassStudent',
+            'Candidate',
         );
 
         foreach ($models as $model) {
