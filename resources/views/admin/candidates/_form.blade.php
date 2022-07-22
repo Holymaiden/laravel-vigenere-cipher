@@ -4,6 +4,7 @@
             <form id="formInput" name="formInput" action="">
                 @csrf
                 <input type="hidden" name="id" id="formId">
+                <input type="hidden" id="_method" name="_method" value="">
                 <div class="modal-header">
                     <h5 class="modal-title"> <label id="headForm"></label> {{ Helper::head($title) }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -63,6 +64,7 @@
         $('#updateBtn').hide();
         $('#formId').val('');
         $('#ajaxModel').modal('show');
+        $('#_method').val('POST');
     }
 
     //Tampilkan form edit
@@ -77,6 +79,7 @@
                 $("#headForm").append("Form Edit");
                 $('#formInput').trigger("reset");
                 $('#ajaxModel').modal('show');
+                $('#_method').val('PUT');
                 $('#saveBtn').hide();
                 $('#updateBtn').show();
                 $('#formId').val(data.id);

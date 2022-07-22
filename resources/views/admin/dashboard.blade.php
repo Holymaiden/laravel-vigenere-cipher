@@ -68,10 +68,10 @@ active
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Online Users</h4>
+                        <h4>Class</h4>
                     </div>
                     <div class="card-body">
-                        47
+                        {!! Helper::get_data('class_students')->count() !!}
                     </div>
                 </div>
             </div>

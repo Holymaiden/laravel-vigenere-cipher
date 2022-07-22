@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController as Auths;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route Auth
 Route::get('/auth/login', [Auths::class, 'index']);
@@ -16,7 +16,11 @@ Route::get('/auth/logout', [Auths::class, 'logout'])->name('logout');
 
 // Route User
 Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'middleware' => ['web']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('', 'HomeController@login');
+    Route::post('', 'HomeController@userLogin')->name('userLogin');
+    Route::get('/logout', 'HomeController@logout')->name('userLogout');
+
+    Route::get('/pemilihan', 'HomeController@index')->name('home');
 });
 
 // Route Admin
