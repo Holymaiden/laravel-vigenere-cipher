@@ -14,12 +14,15 @@ Route::get('/auth/login', [Auths::class, 'index']);
 Route::post('/auth/login', [Auths::class, 'login'])->name('login');
 Route::get('/auth/logout', [Auths::class, 'logout'])->name('logout');
 
-// Route User
+// Route Web
 Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'middleware' => ['web']], function () {
     Route::get('', 'HomeController@login');
     Route::post('', 'HomeController@userLogin')->name('userLogin');
-    Route::get('/logout', 'HomeController@logout')->name('userLogout');
+});
 
+Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'middleware' => ['web']], function () {
+    Route::get('/pengumuman', 'PengumumanController@index')->name('pengumuman');
+    Route::get('/logout', 'HomeController@logout')->name('userLogout');
     Route::get('/pemilihan', 'HomeController@index')->name('home');
 });
 
@@ -72,6 +75,15 @@ Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], fun
             Route::get('/{id}/edit', 'RoleController@edit')->name('roles.edit');
             Route::put('/{id}', 'RoleController@update')->name('roles.update');
             Route::delete('/{id}', 'RoleController@destroy')->name('roles.delete');
+        });
+
+        Route::group(['prefix' => '/votes'], function () {
+            Route::get('/', 'VoteController@index')->name('votes');
+            Route::get('/data', 'VoteController@data')->name('votes.data');
+            Route::post('/store', 'VoteController@store')->name('votes.store');
+            Route::get('/{id}/edit', 'VoteController@edit')->name('votes.edit');
+            Route::put('/{id}', 'VoteController@update')->name('votes.update');
+            Route::delete('/{id}', 'VoteController@destroy')->name('votes.delete');
         });
 
         Route::group(['prefix' => '/settings'], function () {

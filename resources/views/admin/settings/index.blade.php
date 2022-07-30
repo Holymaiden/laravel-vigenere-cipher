@@ -31,6 +31,7 @@ active
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <form id="formInput" name="formInput" enctype="multipart/form-data">
+                        @csrf
                         <input name="_method" type="hidden" value="POST" id="methodId">
                         <input type="hidden" name="id" id="formId">
 

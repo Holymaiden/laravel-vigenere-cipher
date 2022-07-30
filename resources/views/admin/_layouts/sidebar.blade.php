@@ -50,6 +50,19 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item dropdown @stack('votes')">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fas fa-list-alt"></i>
+                    <span>Vote</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="@stack('votes')">
+                        <a class="nav-link" href="{{ url('admin/votes') }}">
+                            Vote
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item dropdown @stack('user-settings')">
                 <a href="#" class="nav-link has-dropdown">
                     <i class="fas fa-list-alt"></i>

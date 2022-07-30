@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Apps;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Vote;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -15,8 +17,12 @@ class HomeController extends Controller
      *
      * @return void
      */
+    protected $start, $end;
+
     public function __construct()
     {
+        $this->start = Helper::getsetting('start');
+        $this->end = Helper::getsetting('end');
     }
 
     /**
@@ -26,6 +32,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $curretDate = Carbon::now()->format('YYYY-MM-DD HH:mm:ss');
+        if ($this->start < $curretDate && $this->end > $curretDate)
+            return redirect()->route('pengumuman');
+
         if (empty(Session::get('user'))) {
             return redirect()->to('');
         }
