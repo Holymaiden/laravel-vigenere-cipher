@@ -27,7 +27,7 @@ Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'mid
 });
 
 // Route Admin
-Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], function () {
+Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin',  'middleware' => ['auth']], function () {
     Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', 'DashboardController@index')->name('dashboard');
@@ -84,6 +84,7 @@ Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], fun
             Route::get('/{id}/edit', 'VoteController@edit')->name('votes.edit');
             Route::put('/{id}', 'VoteController@update')->name('votes.update');
             Route::delete('/{id}', 'VoteController@destroy')->name('votes.delete');
+            Route::delete('/', 'VoteController@reset')->name('votes.reset');
         });
 
         Route::group(['prefix' => '/settings'], function () {

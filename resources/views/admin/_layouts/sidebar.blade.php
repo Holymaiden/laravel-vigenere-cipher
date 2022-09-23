@@ -75,13 +75,13 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="dropdown-menu">
+                <!-- <ul class="dropdown-menu">
                     <li class="@stack('roles')">
                         <a class="nav-link" href="{{ url('admin/roles') }}">
                             Roles
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </li>
             <li class="nav-item dropdown @stack('settings')">
                 <a href="#" class="nav-link has-dropdown">

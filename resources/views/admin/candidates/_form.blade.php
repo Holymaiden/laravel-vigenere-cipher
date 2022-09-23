@@ -14,9 +14,20 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label>Student</label>
+                            <label>President</label>
                             <select name="student_id" id="student_id" class="form-control select2">
-                                <option value="">-- Select Student --</option>
+                                <option value="">-- Select President --</option>
+                                @foreach (Helper::get_data('students') as $student)
+                                <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Vice</label>
+                            <select name="student_vice_id" id="student_vice_id" class="form-control select2">
+                                <option value="">-- Select Vice --</option>
                                 @foreach (Helper::get_data('students') as $student)
                                 <option value="{{ $student->id }}">{{ $student->name }}</option>
                                 @endforeach
@@ -84,6 +95,7 @@
                 $('#updateBtn').show();
                 $('#formId').val(data.id);
                 $('#student_id').val(data.student_id).trigger('change');
+                $('#student_vice_id').val(data.student_vice_id).trigger('change');
                 $('#vision').val(data.vision);
                 $('#mission').val(data.mission);
                 $('#image_old').val(data.image);

@@ -40,8 +40,10 @@ active
                                 <thead>
                                     <tr>
                                         <th scope="col" width="8%">No</th>
-                                        <th scope="col">Student</th>
-                                        <th scope="col">Class</th>
+                                        <th scope="col">President</th>
+                                        <th scope="col">Vice</th>
+                                        <th scope="col">President Class</th>
+                                        <th scope="col">Vice Class</th>
                                         <th scope="col">Vision</th>
                                         <th scope="col">Mission</th>
                                         <th scope="col">Image</th>

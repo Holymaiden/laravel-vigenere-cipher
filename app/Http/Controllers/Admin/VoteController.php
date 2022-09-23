@@ -101,4 +101,15 @@ class VoteController extends Controller
             return view('errors.message', ['message' => $this->response]);
         }
     }
+
+    public function reset()
+    {
+        try {
+            $data = $this->voteContract->reset();
+            return response()->json($data);
+        } catch (\Exception $e) {
+            $this->response['message'] = $e->getMessage() . ' in file :' . $e->getFile() . ' line: ' . $e->getLine();
+            return view('errors.message', ['message' => $this->response]);
+        }
+    }
 }

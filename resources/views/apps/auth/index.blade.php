@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login &mdash; Admin</title>
+    <!-- Icon -->
+    <link rel="icon" href="{{ url('images/logo_footer.png')}}">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,6 +31,11 @@
                         </div>
                         @if($message = Session::get('success'))
                         <div class="alert alert-danger">
+                            {{ $message }}
+                        </div>
+                        @endif
+                        @if($message = Session::get('berhasil'))
+                        <div class="alert alert-success">
                             {{ $message }}
                         </div>
                         @endif

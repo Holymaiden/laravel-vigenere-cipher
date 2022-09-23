@@ -18,4 +18,9 @@ class VoteRepository extends BaseRepository implements VoteContract
     {
         $this->model = $Vote->whereNotNull('id');
     }
+
+    public function reset()
+    {
+        return $this->model->delete();
+    }
 }

@@ -67,6 +67,13 @@ active
                                     <input type="text" class="form-control datetimepicker" name="end" value="" id="end">
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group col-md-12 col-12">
+                                    <button type="submit" class="btn btn-danger" id="resetBtn" value="">
+                                        Reset Voting
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button type="submit" class="btn btn-primary" id="updateBtn" value="">
@@ -138,6 +145,7 @@ active
             $("#end").prop("disabled", true);
             $("#saveBtn").hide()
             $("#updateBtn").hide()
+            $("#resetBtn").hide()
         }
 
         function cekEnable() {
@@ -145,6 +153,7 @@ active
             $("#key").prop("disabled", false);
             $("#start").prop("disabled", false);
             $("#end").prop("disabled", false);
+            $("#resetBtn").show()
             let idData = $("#formId").val();
             idData >= 1 ? $("#updateBtn").show() : $("#saveBtn").show();
 
@@ -216,6 +225,55 @@ active
                     });
                 }
             });
+        });
+
+        $('body').on('click', '#resetBtn', function(e) {
+            e.preventDefault();
+            swal({
+                    title: 'Are you sure?',
+                    text: 'You want to reset data voting!',
+                    icon: 'warning',
+                    dangerMode: true,
+                    buttons: {
+                        confirm: {
+                            text: 'Yes, reset it!',
+                            className: 'btn btn-success'
+                        },
+                        cancel: {
+                            visible: true,
+                            className: 'btn btn-danger'
+                        }
+                    }
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: "DELETE",
+                            url: 'votes',
+                            success: function(data) {
+                                iziToast.success({
+                                    title: 'Successfull.',
+                                    message: 'Reset it data!',
+                                    position: 'topRight',
+                                    timeout: 1500
+                                });
+                            },
+                            error: function(data) {
+                                iziToast.error({
+                                    title: 'Failed,',
+                                    message: 'Reset it data!',
+                                    position: 'topRight',
+                                    timeout: 1500
+                                });
+                            }
+                        });
+                    } else {
+                        swal.close();
+                    }
+                });
         });
 
     });

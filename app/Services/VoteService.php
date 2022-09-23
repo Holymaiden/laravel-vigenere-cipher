@@ -65,4 +65,9 @@ class VoteService implements VoteContract
 
         return $this->contractRepo->paginate($perPage, $columns);
     }
+
+    public function reset()
+    {
+        return $this->contractRepo->reset();
+    }
 }

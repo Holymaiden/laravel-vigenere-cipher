@@ -40,8 +40,9 @@
                     <div class="wizard-pane {{ $currentStep != 1 ? 'd-none' : '' }}" id="step-1">
 
                         @error('student_id') <div class="alert alert-danger">Anda Harus Memilih Kandidat</div>@enderror<br />
-                        @foreach($data as $v)
-                        <div class="form-group row align-items-center">
+
+                        <div class="form-group row">
+                            @foreach($data as $v)
                             <div class="col-6 col-sm-4 ">
                                 <label class="imagecheck mb-4">
                                     <input wire:model="student_id" name="student_id" type="radio" value="{{ $v->id }}" class="imagecheck-input" />
@@ -50,14 +51,15 @@
                                     </figure>
                                 </label>
                                 <label class="imagecheck-label">
-                                    Nama : {{ $v->student->name }}<br />
-                                    Kelas : {{ $v->student->class->name }}<br />
-                                    Visi : "{{ $v->vision }}"<br />
-                                    Misi : "{{ $v->mission }}"<br />
+                                    Ketua : {{ $v->student->name }} ({{ $v->student->class->name }})<br />
+                                    Wakil : {{ $v->studentVice->name }} ({{ $v->studentVice->class->name }})<br /><br />
+                                    <b>Visi :</b> <br />"{{ $v->vision }}"<br /><br />
+                                    <b>Misi</b> : <br />"{{ $v->mission }}"<br />
                                 </label>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
+
                         <div class="form-group row">
                             <div class="col-md-4"></div>
                             <div class="col-md-4"></div>

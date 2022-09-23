@@ -41,7 +41,7 @@ active
                         <h4>Students</h4>
                     </div>
                     <div class="card-body">
-                        {!! Helper::get_data('students')->where('active',1)->count() !!}
+                        {!! Helper::get_data('students')->count() !!}
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ active
                         <h4>Candidates</h4>
                     </div>
                     <div class="card-body">
-                        {!! Helper::get_data('candidates')->where('active',1)->count() !!}
+                        {!! Helper::get_data('candidates')->count() !!}
                     </div>
                 </div>
             </div>

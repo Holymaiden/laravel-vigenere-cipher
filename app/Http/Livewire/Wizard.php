@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Helpers\Helper;
 use App\Models\Candidate;
 use App\Models\Vote;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class Wizard extends Component
@@ -58,7 +59,7 @@ class Wizard extends Component
     {
         $candidate = Candidate::find($this->student_id);
         Vote::create([
-            'student_id' => auth()->user()->id,
+            'student_id' => Session::get('user'),
             'candidate' => Helper::encrypt($candidate->student->name),
             'hope' => Helper::encrypt($this->harapan),
         ]);
@@ -67,6 +68,7 @@ class Wizard extends Component
 
         $this->clearForm();
 
-        $this->currentStep = 1;
+        Session::remove('user');
+        redirect()->to('')->with('berhasil', 'Berhasil Melakukan Voting');
     }
 }

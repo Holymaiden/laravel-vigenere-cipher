@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Apps;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
+use App\Models\Student;
+use App\Models\Vote;
 use Illuminate\Support\Facades\Session;
 
 class PengumumanController extends Controller
@@ -32,6 +35,16 @@ class PengumumanController extends Controller
         }
         $start = $this->start;
         $end = $this->end;
-        return view('apps.pengumuman', compact('start', 'end'));
+        $hasil = Vote::select('candidate')->selectRaw('COUNT(*) AS count')->groupBy('candidate')->orderByDesc('count')->get();
+        $hasils = [];
+        foreach ($hasil as $key => $value) {
+            $hasils[$key] = Helper::decrypt($value->candidate);
+        }
+        $hasil2 = Student::whereIn('name', $hasils)->get();
+        foreach ($hasil2 as $key => $value) {
+            $hasils[$key] = Candidate::where('student_id', $value->id)->first();
+        }
+        $hasils = array_reverse($hasils);
+        return view('apps.pengumuman', compact('start', 'end', 'hasils', 'hasil'));
     }
 }

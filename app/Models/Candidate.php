@@ -11,6 +11,7 @@ class Candidate extends Model
     // protected $table = 'role';
     protected $fillable = [
         'student_id',
+        'student_vice_id',
         'vision',
         'mission',
         'image',
@@ -19,5 +20,10 @@ class Candidate extends Model
     public function student()
     {
         return $this->hasOne('App\Models\Student', 'id', 'student_id');
+    }
+
+    public function studentVice()
+    {
+        return $this->hasOne('App\Models\Student', 'id', 'student_vice_id');
     }
 }

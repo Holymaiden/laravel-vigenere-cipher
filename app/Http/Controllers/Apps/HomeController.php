@@ -32,8 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $curretDate = Carbon::now()->format('YYYY-MM-DD HH:mm:ss');
-        if ($this->start < $curretDate && $this->end > $curretDate)
+        $curretDate = Carbon::now('Asia/Makassar')->format('Y-m-d H:i:s');
+        if ($this->start > $curretDate ||  $this->end < $curretDate)
             return redirect()->route('pengumuman');
 
         if (empty(Session::get('user'))) {
@@ -60,15 +60,11 @@ class HomeController extends Controller
 
     public function userLogin(Request $request)
     {
+        $curretDate = Carbon::now()->format('Y-m-d H:m:s');
 
         $user = Student::where('nis', $request->nis)->where('nisn', $request->nisn)->first();
         if (!$user) {
             return redirect()->to('')->with('success', 'Siswa Tidak Ditemukan');
-        }
-
-        $cek = Vote::where('id', $user->id)->first();
-        if ($cek) {
-            return redirect()->to('')->with('success', 'Anda Sudah Melakukan Vote');
         }
 
         Session::put('user', $user->id);
