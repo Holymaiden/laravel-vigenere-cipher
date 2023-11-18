@@ -44,6 +44,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label>Hobby</label>
+                            <input type="text" class="form-control" name="hobby" id="hobby" required />
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
                     <button type="button" class="btn btn-danger mr-2" data-dismiss="modal">Close</button>
@@ -88,6 +94,7 @@
                 $('#nisn').val(data.nisn);
                 $('#class').val(data.class).trigger('change');
                 $('#jkl').val(data.jkl).trigger('change');
+                $('#hobby').val(data.hobby);
             },
             error: function() {
                 iziToast.error({

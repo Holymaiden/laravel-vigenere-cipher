@@ -53,6 +53,7 @@
                                 <label class="imagecheck-label">
                                     Ketua : {{ $v->student->name }} ({{ $v->student->class->name }})<br />
                                     Wakil : {{ $v->studentVice->name }} ({{ $v->studentVice->class->name }})<br /><br />
+                                    Hobi : @if ($v->student->hobby == $v->studentVice->hobby) {{ $v->student->hobby }} @else {{ $v->student->hobby }} dan {{ $v->studentVice->hobby }} @endif<br /><br />
                                     <b>Visi :</b> <br />"{{ $v->vision }}"<br /><br />
                                     <b>Misi</b> : <br />"{{ $v->mission }}"<br />
                                 </label>

@@ -13,7 +13,8 @@ class Student extends Model
         'nisn',
         'name',
         'class_id',
-        'jkl'
+        'jkl',
+        'hobby'
     ];
 
     public function class()

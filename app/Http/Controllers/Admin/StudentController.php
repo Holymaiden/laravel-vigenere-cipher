@@ -101,4 +101,15 @@ class StudentController extends Controller
             return view('errors.message', ['message' => $this->response]);
         }
     }
+
+    public function whereClass($id)
+    {
+        try {
+            $data = $this->studentContract->where('class_id', $id);
+            return response()->json($data);
+        } catch (\Exception $e) {
+            $this->response['message'] = $e->getMessage() . ' in file :' . $e->getFile() . ' line: ' . $e->getLine();
+            return view('errors.message', ['message' => $this->response]);
+        }
+    }
 }

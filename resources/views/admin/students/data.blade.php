@@ -6,6 +6,7 @@
     <td>{{ $v->name }}</td>
     <td>{{ $v->class->name }}</td>
     <td>{{ $v->jkl }}</td>
+    <td>{{ $v->hobby }}</td>
     <td>
         {!! Helper::btn_action($v->id) !!}
     </td>

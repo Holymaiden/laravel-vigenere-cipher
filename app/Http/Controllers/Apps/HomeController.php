@@ -70,4 +70,12 @@ class HomeController extends Controller
         Session::put('user', $user->id);
         return redirect()->to('pemilihan');
     }
+
+    public function pendaftaran()
+    {
+        $curretDate = Carbon::now('Asia/Makassar')->format('Y-m-d H:i:s');
+        if ($this->start < $curretDate)
+            return redirect()->to('')->with('success', 'Pendafataran Sudah Ditutup');
+        return view('apps.pendaftaran');
+    }
 }

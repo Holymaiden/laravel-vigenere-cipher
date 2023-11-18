@@ -18,12 +18,25 @@ Route::get('/auth/logout', [Auths::class, 'logout'])->name('logout');
 Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'middleware' => ['web']], function () {
     Route::get('', 'HomeController@login');
     Route::post('', 'HomeController@userLogin')->name('userLogin');
+    Route::get('pendaftaran', 'HomeController@pendaftaran')->name('pendaftaran');
 });
 
 Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Apps',  'middleware' => ['web']], function () {
     Route::get('/pengumuman', 'PengumumanController@index')->name('pengumuman');
     Route::get('/logout', 'HomeController@logout')->name('userLogout');
     Route::get('/pemilihan', 'HomeController@index')->name('home');
+});
+
+Route::group(['prefix' => '',  'namespace' => 'App\Http\Controllers\Admin'], function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => '/students'], function () {
+            Route::get('/class/{id}', 'StudentController@whereClass')->name('students.whereClass');
+        });
+
+        Route::group(['prefix' => '/candidates'], function () {
+            Route::post('/storeUser', 'CandidateController@storeUser')->name('candidates.storeUser');
+        });
+    });
 });
 
 // Route Admin

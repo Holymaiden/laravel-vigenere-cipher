@@ -69,6 +69,17 @@ class CandidateController extends Controller
         }
     }
 
+    public function storeUser(Request $request)
+    {
+        try {
+            $data = $this->candidateContract->store($request);
+            return redirect()->to('')->with('success', 'Selamat Kamu Berhasil Mendaftar');
+        } catch (\Exception $e) {
+            $this->response['message'] = $e->getMessage() . ' in file :' . $e->getFile() . ' line: ' . $e->getLine();
+            return view('errors.message', ['message' => $this->response]);
+        }
+    }
+
     public function edit($id)
     {
         try {

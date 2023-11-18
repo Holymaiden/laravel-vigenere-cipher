@@ -45,6 +45,7 @@ active
                                         <th>Name</th>
                                         <th>Class</th>
                                         <th>Jenis Kelamin</th>
+                                        <th>Hobi</th>
                                         <th width="12%">Aksi</th>
                                     </tr>
                                 </thead>
